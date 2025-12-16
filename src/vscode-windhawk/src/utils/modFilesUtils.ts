@@ -165,7 +165,7 @@ export default class ModFilesUtils {
 		}
 
 		// Check minimum Windhawk version requirement
-		const versionsJsonText = await versionsJsonResponse.json();
+		const versionsJsonText = await versionsJsonResponse.json() as Array<{ version: string; minWindhawkVersion?: string; }>;
 		const versionInfo = versionsJsonText.find((v: any) => v.version === version);
 		const minWindhawkVersion = versionInfo?.minWindhawkVersion;
 

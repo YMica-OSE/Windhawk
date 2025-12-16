@@ -639,7 +639,7 @@ class WindhawkPanel {
 					throw Error('Server error: ' + (response.statusText || response.status));
 				}
 
-				const jsonData = await response.json();
+				const jsonData = await response.json() as Array<{ version: string; timestamp: number }>;
 				versions = jsonData.map((v: any) => ({
 					version: v.version,
 					timestamp: v.timestamp,
@@ -1195,7 +1195,7 @@ class WindhawkPanel {
 			throw Error('Server error: ' + (response.statusText || response.status));
 		}
 
-		const data = await response.json();
+		const data = await response.json() as { mods: RepositoryModsType };
 		this._updateUserProfileJson(data);
 		return data.mods as RepositoryModsType;
 	}

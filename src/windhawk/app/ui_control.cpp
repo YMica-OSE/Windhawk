@@ -1,7 +1,5 @@
 #include "stdafx.h"
-
 #include "ui_control.h"
-
 #include "logger.h"
 #include "storage_manager.h"
 
@@ -10,7 +8,12 @@ using json = nlohmann::ordered_json;
 namespace {
 
 const json uiSettings = {
-    {"telemetry.telemetryLevel", "off"},
+    {"editor.fontSize", 16},
+    {"editor.fontFamily", "Cascadia Code, 'Cascadia Code', monospace"},
+    {"debug.console.fontSize", 16},
+    {"terminal.integrated.fontSize", 16},
+    {"terminal.integrated.minimumContrastRatio", 1},
+    {"workbench.colorTheme", "Midnight Dark Abyss"},
     {"update.mode", "none"},
     {"update.showReleaseNotes", false},
     {"extensions.autoCheckUpdates", false},
@@ -20,6 +23,7 @@ const json uiSettings = {
     {"workbench.enableExperiments", false},
     {"workbench.settings.enableNaturalLanguageSearch", false},
     {"workbench.editor.restoreViewState", false},
+    {"workbench.editor.editorActionsLocation", "hidden"},
     {"workbench.tips.enabled", false},
     {"workbench.startupEditor", "none"},
     {"workbench.layoutControl.enabled", false},
@@ -31,9 +35,11 @@ const json uiSettings = {
     {"clangd.path", "${env:WINDHAWK_COMPILER_PATH}\\bin\\clangd.exe"},
     {"clangd.arguments", {"-header-insertion=never"}},
     {"clangd.checkUpdates", false},
-    {"window.menuBarVisibility", "compact"},
-    {"workbench.activityBar.visible", false},
-    {"workbench.editor.showTabs", false},
+    {"window.menuBarVisibility", "toggle"},
+    {"window.commandCenter", false},
+    {"workbench.activityBar.location", "hidden"},
+    {"workbench.secondarySideBar.defaultVisibility", "hidden"},
+    {"workbench.editor.showTabs", "none"},
     {"workbench.statusBar.visible", false},
     {"git.enabled", false},
     {"git.showProgress", false},

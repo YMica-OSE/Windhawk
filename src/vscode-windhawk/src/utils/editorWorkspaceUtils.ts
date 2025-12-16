@@ -141,11 +141,18 @@ export default class EditorWorkspaceUtils {
 		if (minimal) {
 			thenableArray.push(vscode.commands.executeCommand('workbench.action.closeSidebar'));
 			thenableArray.push(vscode.commands.executeCommand('workbench.action.closePanel'));
-			thenableArray.push(vscodeConfig.update('workbench.activityBar.visible', false));
+			thenableArray.push(vscodeConfig.update('workbench.activityBar.location', 'hidden'));
+			thenableArray.push(vscodeConfig.update('workbench.editor.editorActionsLocation', 'hidden'));
+			thenableArray.push(vscodeConfig.update('workbench.editor.showTabs', 'none'));
+		} else {
+			thenableArray.push(vscodeConfig.update('workbench.activityBar.location', 'default'));
+			thenableArray.push(vscodeConfig.update('workbench.editor.editorActionsLocation', 'default'));
+			thenableArray.push(vscodeConfig.update('workbench.editor.showTabs', 'single'));
 		}
 
-		thenableArray.push(vscodeConfig.update('workbench.editor.showTabs', !minimal));
 		thenableArray.push(vscodeConfig.update('workbench.statusBar.visible', !minimal));
+		thenableArray.push(vscodeConfig.update('workbench.layoutControl.enabled', !minimal));
+		thenableArray.push(vscodeConfig.update('window.commandCenter', !minimal));
 
 		return Promise.all(thenableArray);
 	}

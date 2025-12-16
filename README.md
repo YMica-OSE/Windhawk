@@ -1,33 +1,14 @@
+> [!IMPORTANT]
+> This version of Windhawk is intended for advanced users only.
+> If you are a regular user and don't have a deeper knowledge of how Windhawk itself works, use [the official and original version](https://windhawk.net/) instead.
+
 # Windhawk
+...but its UI is rebuilt using modern VSCodium binaries.
 
-![Screenshot](screenshot.png)
+---
 
-Windhawk aims to make it easier to customize Windows programs. For more details, see [the official website](https://windhawk.net/) and [the announcement](https://ramensoftware.com/windhawk).
+The main focus of this fork is to replace the original UI which was built on a 32-bit and aging version of VSCodium, with one that's built on a more up-to-date and architecture native version of it. Obviously this means it won't work on Windows 7 and 8.x due to the newer Electron/Chromium backend. 
 
-This repository is used to [report issues](https://github.com/ramensoftware/windhawk/issues) and to [discuss Windhawk](https://github.com/ramensoftware/windhawk/discussions). For discussing Windhawk mods, refer to [the windhawk-mods repository](https://github.com/ramensoftware/windhawk-mods).
+Additionally, I've done some extra changes to make the mod editing interface [a bit more developer-friendly](https://github.com/ramensoftware/windhawk/issues/774), and also coated the whole UI with a pure-black theme. 
 
-You're also welcome to join [the Windhawk Discord channel](https://discord.com/servers/windhawk-923944342991818753) for a live discussion.
-
-## Technical details
-
-High level architecture:
-
-![High level architecture diagram](diagram.png)
-
-For technical details about the global injection and hooking method that is used, refer to the following blog post: [Implementing Global Injection and Hooking in Windows](https://m417z.com/Implementing-Global-Injection-and-Hooking-in-Windows/).
-
-## Source code
-
-The Windhawk source code can be found in the `src` folder, which contains the following subfolders:
-
-* `windhawk`: The code of the main `windhawk.exe` executable and the 32-bit and 64-bit `windhawk.dll` engine libraries.
-
-* `vscode-windhawk`: The code of the VSCode extension that is responsible for UI operations such as installing mods and listing installed mods.
-
-* `vscode-windhawk-ui`: The UI part of the VSCode extension.
-
-A simple way to get started is by extracting the portable version of Windhawk with the official installer, building the part of Windhawk that you want to modify, and then replacing the corresponding files in the portable version with the newly built files.
-
-## Additional resources
-
-Code which demonstrates the global injection and hooking method that is used can be found in this repository: [global-inject-demo](https://github.com/m417z/global-inject-demo).
+Instructions on how to build this yourself will be added later. Technically any fork of VSCode (even the original) should work, so long as they can run the [extension](https://github.com/YMica-OSE/Windhawk/tree/main/src/vscode-windhawk) that drives Windhawk's entire front end.
